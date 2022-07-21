@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wait-default-storage
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-5"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: wait-default-storage
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: check-default-storage
+        image: "ttl.sh/in-cluster:10m"

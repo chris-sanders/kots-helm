@@ -90,13 +90,13 @@ spec:
               key: secretkey
               name: kotsadm-minio
         - name: S3_BUCKET_ENDPOINT
-          value: {{ .Values.adminConsole.helmManaged }}
+          value: "true"
         - name: HTTP_PROXY
         - name: HTTPS_PROXY
         - name: NO_PROXY
           value: kotsadm-postgres,kotsadm-minio,kotsadm-api-node
         - name: IS_HELM_MANAGED
-          value: "true"
+          value: {{ .Values.adminConsole.helmManaged | quote }}
         image: {{ .Values.adminConsole.images.kotsadm }}
         imagePullPolicy: IfNotPresent
         name: kotsadm

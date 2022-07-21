@@ -15,4 +15,4 @@ spec:
       serviceAccountName: kotsadm
       containers:
       - name: check-default-storage
-        image: "ttl.sh/in-cluster:10m"
+        image: "ghcr.io/chris-sanders/wait-for-storage:main"

@@ -90,7 +90,7 @@ spec:
               key: secretkey
               name: kotsadm-minio
         - name: S3_BUCKET_ENDPOINT
-          value: "true"
+          value: {{ .Values.adminConsole.helmManaged }}
         - name: HTTP_PROXY
         - name: HTTPS_PROXY
         - name: NO_PROXY
